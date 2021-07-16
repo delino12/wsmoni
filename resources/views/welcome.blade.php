@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Welcome to {{ env("APP_NAME") }}
+    Welcome to
 @endsection
 
 @section('contents')
@@ -61,6 +61,7 @@
             </div>
         </div>
     </aside>
+    
     <!-- App features section-->
     <section id="features">
         <div class="container px-5">
@@ -72,16 +73,18 @@
                                 <!-- Feature item-->
                                 <div class="text-center">
                                     <i class="bi-phone icon-feature text-gradient d-block mb-3"></i>
-                                    <h3 class="font-alt">Device Mockups</h3>
-                                    <p class="text-muted mb-0">Ready to use HTML/CSS device mockups, no Photoshop required!</p>
+                                    <h3 class="font-alt">Instant Deposit</h3>
+                                    <p class="text-muted mb-0">Set up any amount, no Card required!</p>
                                 </div>
                             </div>
                             <div class="col-md-6 mb-5">
                                 <!-- Feature item-->
                                 <div class="text-center">
                                     <i class="bi-camera icon-feature text-gradient d-block mb-3"></i>
-                                    <h3 class="font-alt">Flexible Use</h3>
-                                    <p class="text-muted mb-0">Put an image, video, animation, or anything else in the screen!</p>
+                                    <h3 class="font-alt">Quick Transfer</h3>
+                                    <p class="text-muted mb-0">
+                                        Enter Wallet Code and Transfer to Friends and Family
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -90,16 +93,20 @@
                                 <!-- Feature item-->
                                 <div class="text-center">
                                     <i class="bi-gift icon-feature text-gradient d-block mb-3"></i>
-                                    <h3 class="font-alt">Free to Use</h3>
-                                    <p class="text-muted mb-0">As always, this theme is free to download and use for any purpose!</p>
+                                    <h3 class="font-alt">Wallet to Wallet Transfer</h3>
+                                    <p class="text-muted mb-0">
+                                        Wallet Code are simple and easy to remember
+                                    </p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <!-- Feature item-->
                                 <div class="text-center">
                                     <i class="bi-patch-check icon-feature text-gradient d-block mb-3"></i>
-                                    <h3 class="font-alt">Open Source</h3>
-                                    <p class="text-muted mb-0">Since this theme is MIT licensed, you can use it commercially!</p>
+                                    <h3 class="font-alt">Free Sign Up</h3>
+                                    <p class="text-muted mb-0">
+                                        Zero Cost for Signup
+                                    </p>
                                 </div>
                             </div>
                         </div>

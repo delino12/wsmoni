@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Dashboard
+@endsection
+
 @section('contents')
 <div style="height: 100px;"></div>
 <div class="container py-4">
