@@ -9,7 +9,7 @@
 
 ## About Wallet System Moni
 
-About wallet system money this is an assesment application not an actual project. Build with cutting edge legacy PHP advance framework coding patterns and techniques with a little bit of reactJs on the frontend. 
+ Wallet system money this is an assesment application not an actual project. Build with cutting edge legacy PHP advance framework coding patterns and techniques with a little bit of reactJs on the frontend. 
 
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
