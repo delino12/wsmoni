@@ -29,14 +29,21 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     @if(Auth::check())
                         <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                            <li class="nav-item"><a class="nav-link me-lg-3" href="javascript:void(0);">&#8358;0.00</a></li>
+                            <li class="nav-item"><a class="nav-link me-lg-3" href="javascript:void(0);" id="account_balance">&#8358; {{ accountBalance(auth()->user()->id) }}</a></li>
                             <li class="nav-item"><a class="nav-link me-lg-3" href="{{url('home')}}">Dashboard</a></li>
                             <li class="nav-item"><a class="nav-link me-lg-3" href="{{url('transactions')}}">Transactions</a></li>
-                            <li class="nav-item"><a class="nav-link me-lg-3" href="">Logout</a></li>
+                            <li class="nav-item"><a class="nav-link me-lg-3" href="#" onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">Logout</a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
                         </ul>
                     @else
                         <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
                             <li class="nav-item"><a class="nav-link me-lg-3" href="#features">Features</a></li>
+                            <li class="nav-item"><a class="nav-link me-lg-3" href="{{url('login')}}">Sign In</a></li>
                         </ul>
                         <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
                             <span class="d-flex align-items-center">
@@ -120,7 +127,7 @@
 
                     <!-- Password input-->
                     <div class="form-floating mb-3">
-                        <input class="form-control" id="password" type="password" placeholder="password" data-sb-validations="required" name="password_confirmation" />
+                        <input class="form-control" id="password-2" type="password" placeholder="password" data-sb-validations="required" name="password_confirmation" />
                         <label for="phone">Confirm password</label>
                         <div class="invalid-feedback" data-sb-feedback="phone:required">Confirm password</div>
                     </div>
@@ -148,11 +155,35 @@
                 </div>
             </div>
         </div>
-        <!-- Bootstrap core JS-->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        {{-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> --}}
+
+        @if(Auth::check())
+        <script type="text/javascript">
+            // load balance
+            fetchAccountBalance();
+
+            function fetchAccountBalance() {
+                // body...
+                fetch(`{{url('transactions/balance')}}`, {
+                    method: "GET",
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                }).then(r => {
+                    return r.json();
+                }).then(results => {
+                    // console.log(results);
+                    $("#account_balance").html(`&#8358; ${results.balance}`);
+                }).catch(err => {
+                    console.log(err);
+                });
+            }
+        </script>
+        @endif
         @yield('scripts')
     </body>
 </html>

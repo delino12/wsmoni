@@ -81,8 +81,16 @@ class RegisterController extends Controller
             $user_wallet->status        = true;
             $user_wallet->save();
 
-            // 
 
+            $transactions                               = new Transaction();
+            $transactions->user_id                      = $system_user->id;
+            $transactions->amount                       = 100000;
+            $transactions->transaction_type_id          = 2; // 1 Debit 2 Credit
+            $transactions->transaction_description_id   = 1; // 1 Deposit 2 Withdraw 
+            $transactions->reference                    = strtolower(\Str::random(10));
+            $transactions->currency                     = "NGN";
+            $transactions->narration                    = 'System Deposit';
+            $transactions->save();
         }
 
         $user = User::create([
@@ -97,9 +105,6 @@ class RegisterController extends Controller
         $user_wallet->wallet_code   = rand(1111, 9999);
         $user_wallet->status        = true;
         $user_wallet->save();
-
-        // bonus deposit
-
 
         return $user;
     }
