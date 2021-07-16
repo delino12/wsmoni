@@ -6,15 +6,20 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header bg-gradient-primary-to-secondary text-white p-4">{{ __('Dashboard') }}</div>
+                <div class="card-header bg-gradient-primary-to-secondary text-white p-4">
+
+                    <span class="pull-right">
+                        Wallet ID: {{ walletId(auth()->user()->id) }}
+                    </span>
+                </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-2 mt-4">
-                            <a href="javascript:void(0);" class="btn btn-primary mt-4 mb-2">
+                            <a href="{{url('deposit')}}" class="btn btn-primary mt-4 mb-2">
                                 Deposit
                             </a>
-
-                            <a href="javascript:void(0);" class="btn btn-primary mb-2">
+                            <br />
+                            <a href="{{url('transfer')}}"  class="btn btn-primary mb-2">
                                 Transfer
                             </a>
                         </div>
@@ -23,7 +28,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>User</th>
+                                        <th>Reference</th>
                                         <th>Amount</th>
                                         <th>Status</th>
                                         <th>Narration</th>
@@ -39,6 +44,7 @@
         </div>
     </div>
 </div>
+
 @endsection
 
 @section('scripts')
@@ -65,7 +71,7 @@
                 }
                 $("#load-transaction-history").append(`
                     <tr>
-                        <td>${val.user.name}</td>
+                        <td>${val.reference}</td>
                         <td>&#8358;${val.amount}</td>
                         <td>${status}</td>
                         <td>${val.narration}</td>
@@ -76,6 +82,22 @@
         }).catch(err => {
             console.log(err);
         });
+    }
+
+    function showTransferModal() {
+        $("#show-transfer-modal").modal();
+    }
+
+    function postTransfer() {
+        
+    }
+
+    function showDepositModal() {
+        $("#show-deposit-modal").modal();
+    }
+
+    function postDeposit() {
+        
     }
 </script>
 @endsection

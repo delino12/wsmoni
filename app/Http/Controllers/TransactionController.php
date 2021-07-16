@@ -50,8 +50,13 @@ class TransactionController extends Controller
     | FETCH ALL DATA 
     |-----------------------------------------
     */
-    public function fetchAll(Request $request){
+    public function transfer(Request $request){
         // body
+        $transaction = new Transaction();
+        $data        = $transaction->transfer($request);
+
+        // return
+        return $data;
     }
     
     /*
@@ -59,8 +64,13 @@ class TransactionController extends Controller
     | MODIFY or UPDATE DATA 
     |-----------------------------------------
     */
-    public function updateOne(Request $request){
+    public function deposit(Request $request){
         // body
+        $transaction = new Transaction();
+        $data        = $transaction->deposit($request);
+
+        // return
+        return $data;
     }
     
     /*

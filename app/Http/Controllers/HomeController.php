@@ -38,11 +38,31 @@ class HomeController extends Controller
 
     /*
     |-----------------------------------------
-    | DASHBOARD
+    | TRANSACTIONS
     |-----------------------------------------
     */
     public function transactions(Request $request){
         // body
         return view('transactions');
+    }
+
+    /*
+    |-----------------------------------------
+    | DEPOSIT
+    |-----------------------------------------
+    */
+    public function deposit(Request $request){
+        // body
+        return view('deposit');
+    }
+
+    /*
+    |-----------------------------------------
+    | TRANSFER
+    |-----------------------------------------
+    */
+    public function transfer(Request $request){
+        // body
+        return view('transfer');
     }
 }

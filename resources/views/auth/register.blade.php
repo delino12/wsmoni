@@ -80,9 +80,13 @@
                         <label for="name">Full name</label>
                         <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                         @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                            <script type="text/javascript">
+                                swal(
+                                    "error",
+                                    "{{ $message }}",
+                                    "error"
+                                );
+                            </script>
                         @enderror
                     </div>
                     <!-- Email address input-->
@@ -92,9 +96,13 @@
                         <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                         <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                         @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                            <script type="text/javascript">
+                                swal(
+                                    "error",
+                                    "{{ $message }}",
+                                    "error"
+                                );
+                            </script>
                         @enderror
                     </div>
                     <!-- Password input-->
@@ -103,15 +111,19 @@
                         <label for="password">Password</label>
                         <div class="invalid-feedback" data-sb-feedback="password:required">Password is required.</div>
                         @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                            <script type="text/javascript">
+                                swal(
+                                    "error",
+                                    "{{ $message }}",
+                                    "error"
+                                );
+                            </script>
                         @enderror
                     </div>
 
                     <!-- Password input-->
                     <div class="form-floating mb-3">
-                        <input class="form-control" id="password" type="password" placeholder="password" data-sb-validations="required" name="password_confirmation" />
+                        <input class="form-control" id="comfirm-password" type="password" placeholder="password" data-sb-validations="required" name="password_confirmation" />
                         <label for="phone">Confirm password</label>
                         <div class="invalid-feedback" data-sb-feedback="phone:required">Confirm password</div>
                     </div>

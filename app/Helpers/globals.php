@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Transaction;
+use App\Models\Wallet;
 
 if(!function_exists("accountBalance")){
     function accountBalance($user_id){
@@ -15,5 +16,16 @@ if(!function_exists("accountBalance")){
         }
 
         return number_format($balance, 2);
+    }
+}
+
+
+if(!function_exists("walletId")){
+    function walletId($user_id){
+        // body
+        $wallet = Wallet::where('user_id', $user_id)->first();
+
+        // return
+        return $wallet->wallet_code;
     }
 }

@@ -20,9 +20,16 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/transactions', 'HomeController@transactions')->name('transactions');
+Route::get('/deposit',      'HomeController@deposit')->name('deposit');
+Route::get('/transfer',     'HomeController@transfer')->name('transfer');
 
 
 
 Route::get('transactions/balance',  'TransactionController@balance');
 Route::get('transactions/history',  'TransactionController@history');
 Route::post('transactions/post',    'TransactionController@post');
+Route::post('transactions/deposit', 'TransactionController@deposit');
+Route::post('transactions/transfer', 'TransactionController@transfer');
+
+
+Route::post('wallet/resolve',       'WalletController@resolve');
