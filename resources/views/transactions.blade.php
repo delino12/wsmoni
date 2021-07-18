@@ -6,33 +6,7 @@
 
 @section('contents')
 <div style="height: 100px;"></div>
-<div class="container py-4">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header bg-gradient-primary-to-secondary text-white p-4">{{ __('My Transactions') }}</div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Reference</th>
-                                        <th>Amount</th>
-                                        <th>Status</th>
-                                        <th>Narration</th>
-                                        <th>Date</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="load-transaction-history"></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<div id="transaction-component"></div>
 
 @endsection
 

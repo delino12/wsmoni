@@ -18,8 +18,7 @@
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -80,7 +79,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/scripts.js"></script>
-        
+        <script src="{{asset('js/app.js')}}"></script>
         {{-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> --}}
 
         @if(Auth::check())
