@@ -13,3 +13,4 @@ require('./bootstrap');
  */
 
 require('./components/index');
+require('./components/transactions');
