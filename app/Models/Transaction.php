@@ -180,24 +180,31 @@ class Transaction extends Model
             ];
         }else{
             $user = User::find($wallet->user_id);
-            if($user == null){
+            if($user->id == auth()->user()->id){
                 $data = [
                     'status'    => 'error',
-                    'message'   => 'Invalid wallet ID'
+                    'message'   => 'You can not transfer to the same account!'
                 ];
             }else{
+                if($user == null){
+                    $data = [
+                        'status'    => 'error',
+                        'message'   => 'Invalid wallet ID'
+                    ];
+                }else{
 
-                // credit receiver
-                $payload->user_id = $user->id;
-                $payload->transaction_description_id = 1;
-                $payload->narration = auth()->user()->name.' credited your wallet with &#8358;'.number_format($payload->amount);
-                $data = $this->credit($payload);
+                    // credit receiver
+                    $payload->user_id = $user->id;
+                    $payload->transaction_description_id = 1;
+                    $payload->narration = auth()->user()->name.' credited your wallet with &#8358;'.number_format($payload->amount);
+                    $data = $this->credit($payload);
 
-                // debit sender
-                $payload->user_id = auth()->user()->id;
-                $payload->transaction_description_id = 1;
-                $payload->narration = '&#8358;'.number_format($payload->amount).' sent to '.$user->name;
-                $data = $this->debit($payload);
+                    // debit sender
+                    $payload->user_id = auth()->user()->id;
+                    $payload->transaction_description_id = 1;
+                    $payload->narration = '&#8358;'.number_format($payload->amount).' sent to '.$user->name;
+                    $data = $this->debit($payload);
+                }
             }
         }
 
